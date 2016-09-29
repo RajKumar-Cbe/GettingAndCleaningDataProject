@@ -28,7 +28,7 @@ library(dplyr)
 library(stringr)
 
 
-## download the zip file and unzip the files into the data sub-dir
+## download the zip file and unzip the files.
 fileurl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
 print("Downloading the zip file...")
 download.file(fileurl,destfile="./Dataset.zip")
