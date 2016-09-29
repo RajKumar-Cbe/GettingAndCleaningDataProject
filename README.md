@@ -20,7 +20,7 @@ Steps to execute the run_analysis.R from this repository
 6. You will see some messages printed to the R console while the program is executing. These messages are for convenience only. Once completed you will see the final message "Process Completed. Enjoy!!!"
 
 The steps performed by the code are:
-
+------------------------------------
 1. A sub-dir called Data is created under the directory containing the script fle.
 2. The zip file https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip is downloaded into the data sub-dir.
 3. The files are unzipped, creating a "UCI HAR Dataset" folder in the dir containing the script.
@@ -44,7 +44,7 @@ Each record in the" AverageByActivityForSubject.Txt" contains:
 Th dataset AverageByActivityForSubject contains 75 variables and 180 rows.
 ==================================================================
 
-The Readme details from the source dataset which was used as input to this project is also included below:
+The Readme details from the source dataset which was used as input to this project is also included below for the purpose of additional clarity on the experiement and also to ensure that due credit is given to the team.
 ------------------------------------------------------------------------------------------------------------------------------------
 Jorge L. Reyes-Ortiz, Davide Anguita, Alessandro Ghio, Luca Oneto.
 Smartlab - Non Linear Complex Systems Laboratory
