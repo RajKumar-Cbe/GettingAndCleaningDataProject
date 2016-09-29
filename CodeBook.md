@@ -97,115 +97,82 @@ The complete list of variables of each feature vector is available in 'features.
 
 Details of the data elements captured as output of this program
 ----------------------------------------------------------------
-From the above data we chose to select those elements having only the measurements on the mean and standard deviation for each measurement, by ensuring that the string of "mean" or "std" was in the element name which was specified in the 'features.txt' file provided as part of the compressed data file. This resulted in:
-
-S.No	Label						Comments
-----	-----						---------------------------------------------------------------------------------
-01)	  Subject					- The subjects tha tparticipated in the measuresments denoted as 1-30
-
-02)	  Activity 					- The actions performed for that measurement. One of WALKING, 
-									WALKING_UPSTAIRS,WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING.
-
-03)	  TimeBodyAccelerometer-mean-X				-Average of tBodyAcc-mean()-X column in the original data for specified activity and subject
-04)	  TimeBodyAccelerometer-mean-Y
-05) 	  TimeBodyAccelerometer-mean-Z
-
-06) 	 TimeBodyAccelerometer-std-X			 	-Average of tBodyAcc-std()-X column for specified activity and subject.
-07)	  TimeBodyAccelerometer-std-Y
-08) 	 TimeBodyAccelerometer-std-Z
-
-09)	  TimeGravityAccelerometer-mean-X		 	-Average of tGravityAcc-mean()-X column for specified activity and subject.
-10)	  TimeGravityAccelerometer-mean-Y
-11)	  TimeGravityAccelerometer-mean-Z
-
-12)	  TimeGravityAccelerometer-std-X		 	-Average of tGravityAcc-std()-X column for specified activity and subject.
-13)	  TimeGravityAccelerometer-std-Y
-14) 	  TimeGravityAccelerometer-std-Z
-
-15)	  TimeBodyAccelerometerJerk-mean-X			-Average of tBodyAccJerk-mean()-X() column for specified activity and subject.
-16) 	  TimeBodyAccelerometerJerk-mean-Y
-17)	  TimeBodyAccelerometerJerk-mean-Z
-
-18)	  TimeBodyAccelerometerJerk-std-X			-Average of tBodyAccJerk-std()-X column for specified activity and subject.
-19)	  TimeBodyAccelerometerJerk-std-Y
-20)	  TimeBodyAccelerometerJerk-std-Z
-
-21)	  TimeBodyGyro-mean-X				         -Average of tBodyGyro-mean()-X column for specified activity and subject.
-22)	  TimeBodyGyro-mean-Y
-23) 	  TimeBodyGyro-mean-Z
-
-24)	  TimeBodyGyro-std-X				          -Average of tBodyGyro-std()-X column for specified activity and subject.
-25)	  TimeBodyGyro-std-Y
-26)	  TimeBodyGyro-std-Z
-
-27) 	  TimeBodyGyroJerk-mean-X				  -Average of tBodyGyroJerk-mean()-X column for specified activity and subject.
-28)	  TimeBodyGyroJerk-mean-Y
-29)	  TimeBodyGyroJerk-mean-Z
-
-30)	  TimeBodyGyroJerk-std-X				  -Average of tBodyGyroJerk-std()-X column for specified activity and subject.
-31)	  TimeBodyGyroJerk-std-Y
-32)	  TimeBodyGyroJerk-std-Z
-
-33)	  TimeBodyAccelerometerMagnitude-mean		    	-Average of tBodyAccMag-mean() column for specified activity and subject.
-34)	  TimeBodyAccelerometerMagnitude-std
-
-35) 	  TimeGravityAccelerometerMagnitude-mean		-Average of tGravityAccMag-mean() column for specified activity and subject.
-36)	  TimeGravityAccelerometerMagnitude-std
-
-37)	  TimeBodyAccelerometerJerkMagnitude-mean		-Average of tBodyAccJerkMag-mean() column for specified activity and subject.
-38) 	  TimeBodyAccelerometerJerkMagnitude-std
-
-39) 	  TimeBodyGyroMagnitude-mean			          -Average of tBodyGyroMag-mean() column for specified activity and subject.
-40)	  TimeBodyGyroMagnitude-std
-
-41)	  TimeBodyGyroJerkMagnitude-mean			      -Average of tBodyGyroMag-mean() column for specified activity and subject.
-42)	  TimeBodyGyroJerkMagnitude-std
-
-43)	  FrequencyBodyAccelerometer-mean-X		      -Average of fBodyAcc-mean()-X column for specified activity and subject.
-44) 	  FrequencyBodyAccelerometer-mean-Y
-45) 	  FrequencyBodyAccelerometer-mean-Z
-
-46)	  FrequencyBodyAccelerometer-std-X		      -Average of fBodyAcc-std()-X column for specified activity and subject.
-47)	  FrequencyBodyAccelerometer-std-Y
-48)	  FrequencyBodyAccelerometer-std-Z
-
-49) 	 FrequencyBodyAccelerometerJerk-mean-X		      -Average of fBodyAccJerk-mean()-X column for specified activity and subject.
-50) 	FrequencyBodyAccelerometerJerk-mean-Y
-51) 	FrequencyBodyAccelerometerJerk-mean-Z
-
-52) 	FrequencyBodyAccelerometerJerk-std-X		     -Average of fBodyAccJerk-std()-X column for specified activity and subject.
-53) 	FrequencyBodyAccelerometerJerk-std-Y
-54) 	FrequencyBodyAccelerometerJerk-std-Z
-
-55)	FrequencyBodyGyro-mean-X			            -Average of fBodyGyro-mean()-X column for specified activity and subject.
-56) 	FrequencyBodyGyro-mean-Y
-57) 	FrequencyBodyGyro-mean-Z
-
-58)	  FrequencyBodyGyro-std-X				            -Average of fBodyGyro-std()-X column for specified activity and subject.
-59)	  FrequencyBodyGyro-std-Y
-60)	  FrequencyBodyGyro-std-Z
-
-61)	  FrequencyBodyAccelerometerMagnitude-mean	    	-Average of fBodyAccMag-mean() column for specified activity and subject.
-62) 	FrequencyBodyAccelerometerMagnitude-std		
-
-63)	  FrequencyBodyAccelerometerJerkMagnitude-mean		-Average of fBodyBodyAccJerkMag-mean() column (516).
-64) 	FrequencyBodyAccelerometerJerkMagnitude-std
-
-65)	  FrequencyBodyGyroMagnitude-mean			       -Average of fBodyBodyAccGyroMag-mean() column (529) for specified activity and subject.
-66)	  FrequencyBodyGyroMagnitude-std
-
-67)	  FrequencyBodyGyroJerkMagnitude-mean		    -Average of fBodyBodyGyroJerkMag-mean() column (542) for specified activity and subject.
-68)	  FrequencyBodyGyroJerkMagnitude-std
-
-69) 	angletBodyAccelerometerMean-gravity		          -Average of angle(tBodyAccMean,gravity) or column no 555
-70)	  angletBodyAccelerometerJerkMean-gravityMean	    -Average of angle(tBodyAccJerkMean),gravityMean) or col no 556
-
-71)	  angletBodyGyroMean-gravityMean			            - Average of angle(tBodyGyroMean,gravityMean) or column number 557
-72)	  angletBodyGyroJerkMean-gravityMean		          - Average of angle(tBodyGyroJerkMean,gravityMean) or column no 558
-
-73)	  angleX-gravityMean				                      - Average of angle(X,gravityMean) or column no 559
-74) 	angleY-gravityMean				                      - Average of angle(Y,gravityMean) or column no 560
-75)	  angleZ-gravityMean				                      - Average of angle(Z,gravityMean) or column no 561
+From the above data we chose to select those elements having only the measurements on the mean and standard deviation for each measurement, by ensuring that the string of "mean" or "std" was in the element name which was specified in the 'features.txt' file provided as part of the compressed data file. This resulted in the following:
+01)Subject : The subjects tha tparticipated in the measuresments denoted as 1-30
+02)Activity : The actions performed for that measurement. One of the 6 values.								
+03)TimeBodyAccelerometer-mean-X	:Average of tBodyAcc-mean()-X column in the original data for specified activity and subject
+04)TimeBodyAccelerometer-mean-Y
+05)TimeBodyAccelerometer-mean-Z
+06)TimeBodyAccelerometer-std-X	:Average of tBodyAcc-std()-X column for specified activity and subject.
+07)TimeBodyAccelerometer-std-Y
+08)TimeBodyAccelerometer-std-Z
+09)TimeGravityAccelerometer-mean-X : Average of tGravityAcc-mean()-X column for specified activity and subject.
+10)TimeGravityAccelerometer-mean-Y
+11)TimeGravityAccelerometer-mean-Z
+12)TimeGravityAccelerometer-std-X : Average of tGravityAcc-std()-X column for specified activity and subject.
+13)TimeGravityAccelerometer-std-Y
+14)TimeGravityAccelerometer-std-Z
+15)TimeBodyAccelerometerJerk-mean-X : Average of tBodyAccJerk-mean()-X() column for specified activity and subject.
+16)TimeBodyAccelerometerJerk-mean-Y
+17)TimeBodyAccelerometerJerk-mean-Z
+18)TimeBodyAccelerometerJerk-std-X : Average of tBodyAccJerk-std()-X column for specified activity and subject.
+19)TimeBodyAccelerometerJerk-std-Y
+20)TimeBodyAccelerometerJerk-std-Z
+21)TimeBodyGyro-mean-X		    : Average of tBodyGyro-mean()-X column for specified activity and subject.
+22)TimeBodyGyro-mean-Y
+23)TimeBodyGyro-mean-Z
+24)TimeBodyGyro-std-X		    : Average of tBodyGyro-std()-X column for specified activity and subject.
+25)TimeBodyGyro-std-Y
+26)TimeBodyGyro-std-Z
+27)TimeBodyGyroJerk-mean-X	    : Average of tBodyGyroJerk-mean()-X column for specified activity and subject.
+28)TimeBodyGyroJerk-mean-Y
+29)TimeBodyGyroJerk-mean-Z
+30)TimeBodyGyroJerk-std-X	    : Average of tBodyGyroJerk-std()-X column for specified activity and subject.
+31)TimeBodyGyroJerk-std-Y
+32)TimeBodyGyroJerk-std-Z
+33)TimeBodyAccelerometerMagnitude-mean	   : Average of tBodyAccMag-mean() column for specified activity and subject.
+34)TimeBodyAccelerometerMagnitude-std
+35)TimeGravityAccelerometerMagnitude-mean  : Average of tGravityAccMag-mean() column for specified activity and subject.
+36)TimeGravityAccelerometerMagnitude-std
+37)TimeBodyAccelerometerJerkMagnitude-mean : Average of tBodyAccJerkMag-mean() column for specified activity and subject.
+38)TimeBodyAccelerometerJerkMagnitude-std
+39)TimeBodyGyroMagnitude-mean		: Average of tBodyGyroMag-mean() column for specified activity and subject.
+40)TimeBodyGyroMagnitude-std
+41)TimeBodyGyroJerkMagnitude-mean	: Average of tBodyGyroMag-mean() column for specified activity and subject.
+42)TimeBodyGyroJerkMagnitude-std
+43)FrequencyBodyAccelerometer-mean-X	: Average of fBodyAcc-mean()-X column for specified activity and subject.
+44)FrequencyBodyAccelerometer-mean-Y
+45)FrequencyBodyAccelerometer-mean-Z
+46)FrequencyBodyAccelerometer-std-X	: Average of fBodyAcc-std()-X column for specified activity and subject.
+47)FrequencyBodyAccelerometer-std-Y
+48)FrequencyBodyAccelerometer-std-Z
+49)FrequencyBodyAccelerometerJerk-mean-X : Average of fBodyAccJerk-mean()-X column for specified activity and subject.
+50)FrequencyBodyAccelerometerJerk-mean-Y
+51)FrequencyBodyAccelerometerJerk-mean-Z
+52)FrequencyBodyAccelerometerJerk-std-X	 : Average of fBodyAccJerk-std()-X column for specified activity and subject.
+53)FrequencyBodyAccelerometerJerk-std-Y
+54)FrequencyBodyAccelerometerJerk-std-Z
+55)FrequencyBodyGyro-mean-X	: Average of fBodyGyro-mean()-X column for specified activity and subject.
+56)FrequencyBodyGyro-mean-Y
+57)FrequencyBodyGyro-mean-Z
+58)FrequencyBodyGyro-std-X		: Average of fBodyGyro-std()-X column for specified activity and subject.
+59)FrequencyBodyGyro-std-Y
+60)FrequencyBodyGyro-std-Z
+61)FrequencyBodyAccelerometerMagnitude-mean     : Average of fBodyAccMag-mean() column for specified activity and subject.
+62)FrequencyBodyAccelerometerMagnitude-std		
+63)FrequencyBodyAccelerometerJerkMagnitude-mean	: Average of fBodyBodyAccJerkMag-mean() column (516).
+64)FrequencyBodyAccelerometerJerkMagnitude-std
+65)FrequencyBodyGyroMagnitude-mean	: Average of fBodyBodyAccGyroMag-mean() column (529) for specified activity and subject.
+66)FrequencyBodyGyroMagnitude-std
+67)FrequencyBodyGyroJerkMagnitude-mean	: Average of fBodyBodyGyroJerkMag-mean() column (542) for specified activity and subject.
+68)FrequencyBodyGyroJerkMagnitude-std
+69)angletBodyAccelerometerMean-gravity  : Average of angle(tBodyAccMean,gravity) or column no 555
+70)angletBodyAccelerometerJerkMean-gravityMean : Average of angle(tBodyAccJerkMean),gravityMean) or col no 556
+71)angletBodyGyroMean-gravityMean	: Average of angle(tBodyGyroMean,gravityMean) or column number 557
+72)angletBodyGyroJerkMean-gravityMean   : Average of angle(tBodyGyroJerkMean,gravityMean) or column no 558
+73)angleX-gravityMean	 : Average of angle(X,gravityMean) or column no 559
+74)angleY-gravityMean	 : Average of angle(Y,gravityMean) or column no 560
+75)angleZ-gravityMean	 : Average of angle(Z,gravityMean) or column no 561
      
 So the entire output dataset is written as a file titled "AverageByActivityForSubject.txt". It consists of 75 variables and 180(30 subjects each with 6y actions) rows.
 
