@@ -178,19 +178,15 @@ So the entire output dataset is written as a file titled "AverageByActivityForSu
 
 Data Transformation steps
 -------------------------
-1. The data file is downloaded to a sub-dir called data that is created in the directory containing the "run_analysis.R" file. It is assumed that prior to executing, the working directory to set to this folder containing the "run_analysis.R" file.
+1. The data file is downloaded to the directory containing the "run_analysis.R" file. It is assumed that prior to executing, the working directory to set to this folder in R.
 	Note: If the program is rerun it will again download the file and unzip it overwriting the earlier files if they are present.
 2. The data file is unzipped into the root folder of the executable, thereby creating a sub-folder called "UCI HAR Dataset". Further under this sub-folder are the main data sub-folders of "test\" and "train\" containing the test and training data respectively. The "UCI HAR Dataset\" folder contains the meta data files - "features.txt" and "activity_labels.txt".
 	
 	The code that accomplishes steps 1 and 2 are:
-	## check to see if a data sub-dir exists. If not create it
-	if (!file.exists("./data")) {dir.create("./data")}
-
-
-	## download the zip file and unzip the files into the data sub-dir
+	## download the zip file and unzip the files
 	fileurl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
-	download.file(fileurl,destfile="./data/Dataset.zip")
-	unzip("./data/Dataset.zip",overwrite = TRUE)
+	download.file(fileurl,destfile="./Dataset.zip")
+	unzip("./Dataset.zip",overwrite = TRUE)
 
 3. The respective training and test data is read in to datasets using the read table command as follows. 
 	
@@ -284,6 +280,9 @@ Data Transformation steps
 		## second dataset with the average of each variable for each activity and each subject
 		## Note: I am making use of the .SD to tell lapply that I mean all columns other than the group by columns.
 		tidygroupbyset <- tidydataset[, lapply(.SD, mean), by = 'Subject,Activity']
+		
+   This data is grouped by subject and activity for convenience as follows:
+   tidygroupbyset <- arrange(tidygroupbyset,Subject,Activity)
 
 9. From this second tidy data set a text file called "AverageByActivityForSubject.txt" is created in the directory contining the script file using:
 	write.table(tidygroupbyset, file = "AverageByActivityForSubject.txt", row.names = FALSE)
@@ -294,6 +293,7 @@ Note: The program when executed does create some messages in the console. The in
 
 
 The Summary of the data output created in the "AverageByActivityForSubject.txt" file for the project is as follows:
+-------------------------------------------------------------------------------------------------------------------
 
 Subject                   Activity  TimeBodyAccelerometer-mean-X TimeBodyAccelerometer-mean-Y
  Min.   : 1.0   LAYING            :30   Min.   :0.2216               Min.   :-0.040514           
