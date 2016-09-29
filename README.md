@@ -20,18 +20,19 @@ Steps to execute the run_analysis.R from this repository
 6. You will see some messages printed to the R console while the program is executing. These messages are for convenience only. Once completed you will see the final message "Process Completed. Enjoy!!!"
 
 The steps performed by the code are:
-1. A sub-dir called Data is created under the directory containing the scrript fle.
+
+1. A sub-dir called Data is created under the directory containing the script fle.
 2. The zip file https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip is downloaded into the data sub-dir.
 3. The files are unzipped, creating a "UCI HAR Dataset" folder in the dir containing the script.
 4. From this folder the trainining and test data files are loaded in and the 2 datasets are merged together.
 5. The action values are obtained from the file "Activity_Labels.txt" and the action ids are replaced with the descriptive names.
 6. The measurements for the mean and standard deviation alone are selected from the complete data, using the labels in "features.txt".
-7.The label names for the activities are corrected to ensure removal of special characters like "(," nad also made more descrptive.
+7. The label names for the activities are corrected to ensure removal of special characters like "(," nad also made more descrptive.
 8. The label for the subject and actions are also explicitly identified and then the 3 data sets are merged into one tidy data set.
 	This file is written as "WearableTidyDataSet.txt" into the folder containing the script file.
 9. From this dataset, a new dataset containing the average of each variable for each activity and each subject is chosen. This file is written as "AverageByActivityForSubject.txt" into the folder containing the script file.
 
-For more details on the logic used please refer to the CodeBook.Md file in this repository.
+Note: For more details on the logic used please refer to the CodeBook.Md file in this repository.
 ==================================================================
 This work was done for a project for the course "Getting and Cleaning Data" by John Hopkins school via Coursera. Please refer to this course for further project instructions.
 
